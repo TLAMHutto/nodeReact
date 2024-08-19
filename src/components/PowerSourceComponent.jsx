@@ -1,8 +1,9 @@
-// src/components/PowerSourceNodeComponent.jsx
 import React from 'react';
-import { Handle } from 'react-flow-renderer';
+import { Handle } from 'reactflow';
 
 const PowerSourceNodeComponent = ({ id, data }) => {
+  // console.log(`Power Source Node ${id} Data:`, data); // Debugging output
+
   return (
     <div style={{ padding: 10, border: '1px solid #ddd', borderRadius: 5, background: '#fff' }}>
       Power Source
@@ -19,3 +20,4 @@ const PowerSourceNodeComponent = ({ id, data }) => {
 };
 
 export default PowerSourceNodeComponent;
+

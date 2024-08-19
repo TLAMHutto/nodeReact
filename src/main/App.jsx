@@ -10,11 +10,16 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// Import the nodes and the power source node
-// import { nodes as importedNodes } from './nodes/Nodes.jsx'; // Your existing nodes
-import PowerSourceNode from '../nodes/PowerSourceNode.jsx'; // New power source node
+import PowerSourceNode from '../nodes/PowerSourceNode.jsx';
 import LoadNode from '../nodes/LoadNode.jsx'
 import ResistorNode from '../nodes/ResistorNode.jsx'
+
+// import PowerSourceNodeComponent from '../components/PowerSourceComponent.jsx';
+// import ResistorNodeComponent from '../components/ResistorNodeComponent.jsx';
+
+import { useEffect } from 'react';
+
+
 // Combine nodes
 const initialNodes = [ PowerSourceNode, LoadNode, ResistorNode];
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
@@ -24,10 +29,13 @@ export default function App() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges],
+    (params) => {
+      console.log('Voltage:', PowerSourceNode.data)
+      console.log('Resistance:', ResistorNode.data);
+      setEdges((eds) => addEdge(params, eds));
+    },
+    [nodes, setEdges]
   );
-
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow

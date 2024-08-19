@@ -1,10 +1,13 @@
-// src/nodes/ResistorNode.jsx
+
 import React from 'react';
 
 const ResistorNode = {
   id: 'resistor',
   position: { x: 100, y: 100 }, // Set an initial position
-  data: { label: 'Resistor' },
+  data: { 
+    label: 'Resistor',
+    ohms: '10'
+   },
   type: 'default', // You can use 'default' or a custom type based on your needs
   sourcePosition: 'right', // Position of the output port
   targetPosition: 'left', // Position of the input port
@@ -16,9 +19,6 @@ const ResistorNode = {
     padding: 10,
     background: '#fff',
   },
-  // Define the ports (input and output) for this node
-  // This is often customized in the node type's component
-  // but some libraries provide built-in ways to handle ports
 };
 
 export default ResistorNode;
